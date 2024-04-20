@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('films/', include('films.urls')),  # замените 'myapp' на имя вашего приложения
+    path('api/', include('films.urls')),  # замените 'myapp' на имя вашего приложения
 ]
