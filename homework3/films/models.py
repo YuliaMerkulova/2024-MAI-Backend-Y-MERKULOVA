@@ -9,6 +9,7 @@ class User(models.Model):
 
 class Film(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название фильма")
+    description = models.CharField(max_length=300, verbose_name="Описание фильма", null=True)
     genre = models.CharField(max_length=150, verbose_name='Жанр фильма')
     year = models.IntegerField(verbose_name='Год выпуска')
     time = models.IntegerField(verbose_name='Продолжительность фильма (мин)')
@@ -16,17 +17,10 @@ class Film(models.Model):
     summ_rating = models.IntegerField(verbose_name="Сумма оценок")
     count_rating = models.IntegerField(verbose_name="Колическтво оценок")
 
-    def __str__(self):
-        return f'{self.name} [{self.pk}]'
-
-    class Meta:
-        verbose_name = "Фильм"
-        verbose_name_plural = "Фильмы"
-
 
 class Rating(models.Model):
     film_id = models.ForeignKey(Film, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL)
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     rate = models.IntegerField()
 
     class Meta:

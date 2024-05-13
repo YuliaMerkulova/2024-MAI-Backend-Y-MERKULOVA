@@ -26,13 +26,9 @@ SECRET_KEY = 'django-insecure-r_rko6pgaeo2xraqkq8nf3==1b_)!m&$+$#7*^#)5p(bsaf*dj
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "app_homework_3"
+    "app_homework_3",
+    "localhost"
 ]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000"
-]
-
 
 # Application definition
 

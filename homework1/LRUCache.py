@@ -9,7 +9,7 @@ class LRUCache:
     def get(self, key: str) -> str:
         if key not in self.cache:
             return ""
-        self.cache.move_to_end(key)
+        self.cache.move_to_end(key) # в конце храним самые востребуемые
         return self.cache[key]
 
     def set(self, key: str, value: str) -> None:
@@ -20,7 +20,7 @@ class LRUCache:
 
         self.cache[key] = value
         if len(self.cache) == self.capacity:
-            self.cache.popitem(last=False)
+            self.cache.popitem(last=False) # если кончилось место, удаляем самый невостребуемый
 
     def rem(self, key: str) -> None:
         if key in self.cache:

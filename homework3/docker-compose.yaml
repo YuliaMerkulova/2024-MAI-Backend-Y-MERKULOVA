@@ -14,12 +14,12 @@ services:
 
   django-app:
     build:
-      context: ./djangoProject
-    container_name: app-hw3
+      context: ./
+    container_name: app_homework_3
     depends_on:
       - postgres
     volumes:
-      - ./djangoProject:/app
+      - ./:/app
     ports:
       - "8000:8000"
     entrypoint: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
